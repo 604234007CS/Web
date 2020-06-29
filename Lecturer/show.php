@@ -1,4 +1,4 @@
-<?php require('header.php');?>
+<?php require('../header.php');?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +10,12 @@
   <body>
   <div class="container">
   	<div class="row">
-    <?php require('picture.php');?>
+  
+    <div class="col-md-12">
+        	<img src="../img/pic.jpg" class="img img-responsive" width="100%">
+            <!--size 980 x 200px -->
+    </div> 
+
    </div>
   	<div class="row">
     	<div class="col-md-12">
@@ -23,7 +28,7 @@
         <div class="container contact">	
     	<table id="Train" class="table table-bordered table-striped">
       <h2>ข้อมูลวิทยากร</h2>
-      <a href="LecturerAdd.php" class='btn btn-info'>เพิ่มวิทยากร</a>
+      <a href="add.php" class='btn btn-info'>เพิ่มวิทยากร</a>
           </div>
     	<div class="card-body">
       	<table class="table table-bordered">
@@ -62,7 +67,7 @@
 			
 
 			<?php 
-			require('footer.php');
+			require('../footer.php');
 			?>
 
 

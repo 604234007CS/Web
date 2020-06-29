@@ -10,7 +10,12 @@
   <body>
   <div class="container">
   	<div class="row">
-    <?php require('picture.php');?>
+    
+    <div class="col-md-12">
+        	<img src="img/pic.jpg" class="img img-responsive" width="100%">
+            <!--size 980 x 200px -->
+    </div> 
+
    </div>
   	<div class="row">
     	<div class="col-md-12">

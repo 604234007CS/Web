@@ -1,4 +1,4 @@
-<?php require('header.php');?>
+<?php require('../header.php');?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +10,12 @@
   <body>
   <div class="container">
   	<div class="row">
-    <?php require('picture.php');?>
+  
+    <div class="col-md-12">
+        	<img src="../img/pic.jpg" class="img img-responsive" width="100%">
+            <!--size 980 x 200px -->
+    </div> 
+
    </div>
   	<div class="row">
     	<div class="col-md-12">
@@ -19,7 +24,8 @@
     </div>
         </div>
 
-<div class="container">
+
+        <div class="container">
   <div class = "card mt-4">
     <div class = "card-header">
     <h2>รายละเอียดข้อมูลวิทยากร</h2>

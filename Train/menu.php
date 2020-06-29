@@ -10,9 +10,9 @@
       </button>
 
       
-      <a class="navbar-brand" href="index.php">หน้าหลัก</a>
-      <a class="navbar-brand" href="Train/show.php">อบรม</a>
-      <a class="navbar-brand" href="Lecturer/show.php">วิทยากร</a>
+      <a class="navbar-brand" href="../index.php">หน้าหลัก</a>
+      <a class="navbar-brand" href="show.php">อบรม</a>
+      <a class="navbar-brand" href="../Lecturer/show.php">วิทยากร</a>
 
     </div>
    
