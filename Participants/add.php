@@ -1,30 +1,29 @@
 <?php
 require '../condb.php';
 $message = '';
-if (isset($_POST['L_ID']) && isset($_POST['Dir_Name']) && isset($_POST['L_Name']) && isset($_POST['L_Sname']) && isset($_POST['Tell']) && isset($_POST['Workplace']) && isset($_POST['Username']) && isset($_POST['Password'])){
-    $L_ID = $_POST['L_ID'];
+if (isset($_POST['P_ID']) && isset($_POST['Dir_Name']) && isset($_POST['P_Name']) && isset($_POST['P_Sname']) 
+&& isset($_POST['Tell'])  && isset($_POST['Username']) && isset($_POST['Password'])){
+    $P_ID = $_POST['P_ID'];
     $Dir_Name = $_POST['Dir_Name'];
-    $L_Name = $_POST['L_Name'];
-    $L_Sname = $_POST['L_Sname']; 
+    $P_Name = $_POST['P_Name'];
+    $P_Sname = $_POST['P_Sname']; 
     $Tell = $_POST['Tell']; 
-    $Workplace = $_POST['Workplace']; 
     $Username = $_POST['Username'];
     $Password = $_POST['Password'];  
-    $sql = "INSERT INTO lecturer(L_ID, Dir_Name, L_Name, L_Sname, Tell, Workplace, Username, Password )
-    VALUES('$L_ID', '$Dir_Name', '$L_Name', '$L_Sname', '$Tell', '$Workplace', '$Username', '$Password')";
+    $sql = "INSERT INTO participants(P_ID, Dir_Name, P_Name, P_Sname, Tell, Username, Password )
+    VALUES('$P_ID', '$Dir_Name', '$P_Name', '$P_Sname', '$Tell', '$Username', '$Password')";
     $statement = $connection->prepare($sql);
     if($statement->execute())   {
-        $message = 'เพิ่มการอบรมสำเร็จ';
-        header("Location: ../Lecturer/show.php");
-       
-
+        $message = 'เพิ่มผู้เข้าอบรมสำเร็จ';
+        header("Location: ../Participants/show.php");
     }
-} 
-$sql1="SELECT * FROM lecturer ";
+}
+
+$sql1="SELECT * FROM participants ";
 $statement = $connection->prepare($sql1);
 $statement->execute();
-$lecturer = $statement->fetchAll(PDO::FETCH_OBJ);
-$index = sizeof($lecturer);
+$participants = $statement->fetchAll(PDO::FETCH_OBJ);
+$index = sizeof($participants);
 echo $index;
 ?>
 
@@ -56,10 +55,10 @@ echo $index;
         </div>
 
 
-        <div class="container">
+  <div class="container">
   <div class = "card mt-4">
     <div class = "card-header">
-    <h2>รายละเอียดข้อมูลวิทยากร</h2>
+    <h2>รายละเอียดข้อมูลผู้เข้าอบรม</h2>
     </div>
     <div class = "card-body">
     <?php if(!empty($message)): ?>
@@ -70,37 +69,33 @@ echo $index;
 
       <form method="post">   
       
-      
-        <div class="form-group">
-          <label for="">รหัสวิทยากร</label>
+
+      <div class="form-group">
+          <label for="">รหัสผู้เข้าอบรม</label>
           <?php if($index == 0){?>
-          <input type="text" name="L_ID" id="L_ID" class="form-control"   value="L001" required >
+          <input type="text" name="P_ID" id="P_ID" class="form-control"   value="P001" required >
           <?php }else if($index !=0){?>
-            <input type="text" name="L_ID" id="L_ID" class="form-control"  
-            value="<?php $i = 1+$index; $auto_id = 'L00'.$i; echo $auto_id;?>" readonly >
+            <input type="text" name="P_ID" id="P_ID" class="form-control"  
+            value="<?php $i = 1+$index; $auto_id = 'P00'.$i; echo $auto_id;?>" readonly >
             <?php }?>
           </div>
-          
+       
         <div class="form-group">
           <label for="">คำนำหน้า</label>
-          <input type="text" name="Dir_Name" id="Dir_Name" class="form-control"  required ></div>
-         
+          <input type="text" name="Dir_Name" id="Dir_Name" class="form-control" required ></div>
+                 
         <div class="form-group">
           <label for="">ชื่อ</label>
-          <input type="text" name="L_Name" id="L_Name" class="form-control" required ></div>
+          <input type="text" name="P_Name" id="P_Name" class="form-control" required ></div>
        
         <div class="form-group">
           <label for="">นามสกุล</label>
-          <input type="text" name="L_Sname" id="L_Sname" class="form-control" required ></div>
+          <input type="text" name="P_Sname" id="P_Sname" class="form-control" required ></div>
 
         <div class="form-group">
           <label for="">หมายเลขโทรศัพท์</label>
           <input type="text" name="Tell" id="Tell" class="form-control" required ></div>
 
-        <div class="form-group">
-          <label for="">สถานที่ทำงาน</label>
-          <input type="text" name="Workplace" id="Workplace" class="form-control" required ></div>
-        
         <div class="form-group">
           <label for="">ชื่อผู้ใช้</label>
           <input type="text" name="Username" id="Username" class="form-control" required ></div>
@@ -108,20 +103,15 @@ echo $index;
         <div class="form-group">
           <label for="">รหัสผ่าน</label>
           <input type="password" name="Password" id="Password" class="form-control" required ></div>
-<!-- 
-        <div class="form-group">
-          <label for="">รหัสการอบรม</label>
-          <input type="text" name="lecturer" id="lesturer" class="form-control" required ></div>
-         -->
-        
+
       
         <div class="form-group">
-        <button type="submit" class="btn btn-success">เพิ่มวิทยากร</button>
-        <a href="show.php" class="btn btn-danger">ยกเลิก</a>
+           <button type="submit" class="btn btn-info">เพิ่มผู้เข้าอบรม</button></div>
+           <!-- <a href="edit.php?id=<?= $participants->P_ID ?>" class="btn btn-info">แก้ไข</a> -->
+
+
 
       </form>
-
-
     </div>
   </div>
 </div>

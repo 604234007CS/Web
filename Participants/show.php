@@ -1,9 +1,9 @@
 <?php
 require '../condb.php';
-$sql = 'SELECT * FROM lecturer';
+$sql = 'SELECT * FROM participants';
 $statement = $connection->prepare($sql);
 $statement->execute();
-$lecturer = $statement->fetchAll(PDO::FETCH_OBJ);
+$participants = $statement->fetchAll(PDO::FETCH_OBJ);
 ?>
 
 
@@ -36,37 +36,34 @@ $lecturer = $statement->fetchAll(PDO::FETCH_OBJ);
 
         <div class="container contact">	
     	<table id="Train" class="table table-bordered table-striped">
-      <h2>ข้อมูลวิทยากร</h2>
-      <a href="add.php" class='btn btn-info'>เพิ่มวิทยากร</a>
+      <h2>ข้อมูลผู้เข้าอบรม</h2>
+      <a href="add.php" class='btn btn-info'>เพิ่มผู้เข้าอบรม</a>
           </div>
     	<div class="card-body">
       	<table class="table table-bordered">
         
 		    <tr> <!-- ชื่อที่จะเเสดงในตาราง -->
-        	<th>รหัสวิทยากร</th>
-          <th>คำนำหน้า</th>
+        	<th>รหัสผู้เข้าอบรม</th>
+            <th>คำนำหน้า</th>
          	<th>ชื่อ</th>
          	<th>นามสกุล</th>
-          <th>หมายเลขโทรศัพท์</th>
-          <th>สถานที่ทำงาน</th>
-          <th>เพิ่มเติม</th>
+            <th>หมายเลขโทรศัพท์</th>
+            <th>เพิ่มเติม</th>
         </tr>
 
-        <?php foreach($lecturer as $lecturers): ?>
+        <?php foreach($participants as $participantss): ?>
           <tr> <!-- สร้างชื่อให้เหมือนในฐานข้อมูล -->
-            <td><?= $lecturers->L_ID; ?></td> 
-            <td><?= $lecturers->Dir_Name; ?></td> 
-            <td><?= $lecturers->L_Name; ?></td> 
-            <td><?= $lecturers->L_Sname; ?></td> 
-            <td><?= $lecturers->Tell; ?></td> 
-            <td><?= $lecturers->Workplace; ?></td>             
+            <td><?= $participantss->P_ID; ?></td> 
+            <td><?= $participantss->Dir_Name; ?></td> 
+            <td><?= $participantss->P_Name; ?></td> 
+            <td><?= $participantss->P_Sname; ?></td> 
+            <td><?= $participantss->Tell; ?></td> 
 			
-            <td>
-              <a href="edit.php?id=<?= $lecturers->L_ID ?>" class="btn btn-info">แก้ไข</a>
+      <td>
+              <a href="edit.php?id=<?= $participantss->P_ID ?>" class="btn btn-info">แก้ไข</a>
               <a onclick="return confirm('ต้องการลบหรือไม่?')" 
-              href="delete.php?id=<?= $lecturers->L_ID ?>" class='btn btn-danger'>ลบ</a>
+              href="delete.php?id=<?= $participantss->P_ID ?>" class='btn btn-danger'>ลบ</a>
             </td>
-
           </tr>
         <?php endforeach; ?>
 						
@@ -79,6 +76,3 @@ $lecturer = $statement->fetchAll(PDO::FETCH_OBJ);
 			<?php 
 			require('../footer.php');
 			?>
-
-
-		

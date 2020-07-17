@@ -26,7 +26,7 @@
 
 
            
-     <div class="row" style="padding-top:100px">
+     <!-- <div class="row" style="padding-top:100px">
         <div class="col-md-4"></div>
     	      <div class="col-md-4" style="background-color:#f4f4f4">
               <h3 align="center">         
@@ -57,8 +57,9 @@
       </div>
            
      
- 
+  -->
 
 
  </body>
 </html>
+

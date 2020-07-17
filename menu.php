@@ -12,9 +12,12 @@
       
       <a class="navbar-brand" href="index.php">หน้าหลัก</a>
       <a class="navbar-brand" href="Train/show.php">อบรม</a>
+      <a class="navbar-brand" href="Document/show.php">เอกสาร</a>
       <a class="navbar-brand" href="Lecturer/show.php">วิทยากร</a>
 
     </div>
+
+    
    
 
     </div><!-- /.navbar-collapse -->

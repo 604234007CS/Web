@@ -1,9 +1,9 @@
 <?php
 require '../condb.php';
-$sql = 'SELECT * FROM lecturer';
+$sql = 'SELECT * FROM document';
 $statement = $connection->prepare($sql);
 $statement->execute();
-$lecturer = $statement->fetchAll(PDO::FETCH_OBJ);
+$document = $statement->fetchAll(PDO::FETCH_OBJ);
 ?>
 
 
@@ -35,38 +35,33 @@ $lecturer = $statement->fetchAll(PDO::FETCH_OBJ);
 
 
         <div class="container contact">	
-    	<table id="Train" class="table table-bordered table-striped">
-      <h2>ข้อมูลวิทยากร</h2>
-      <a href="add.php" class='btn btn-info'>เพิ่มวิทยากร</a>
+    	<table id="document" class="table table-bordered table-striped">
+      <h2>ข้อมูลเอกสาร</h2>
+      <a href="add.php" class='btn btn-info'>เพิ่มเอกสาร</a>
           </div>
     	<div class="card-body">
       	<table class="table table-bordered">
         
 		    <tr> <!-- ชื่อที่จะเเสดงในตาราง -->
-        	<th>รหัสวิทยากร</th>
-          <th>คำนำหน้า</th>
-         	<th>ชื่อ</th>
-         	<th>นามสกุล</th>
-          <th>หมายเลขโทรศัพท์</th>
-          <th>สถานที่ทำงาน</th>
-          <th>เพิ่มเติม</th>
+        	<th>รหัสเอกสาร</th>
+            <th>ชื่อเอกสาร</th>
+            <th>เอกสาร</th>
+            <th>เพิ่มเติม</th>
+
         </tr>
 
-        <?php foreach($lecturer as $lecturers): ?>
+        <?php foreach($document as $documents): ?>
           <tr> <!-- สร้างชื่อให้เหมือนในฐานข้อมูล -->
-            <td><?= $lecturers->L_ID; ?></td> 
-            <td><?= $lecturers->Dir_Name; ?></td> 
-            <td><?= $lecturers->L_Name; ?></td> 
-            <td><?= $lecturers->L_Sname; ?></td> 
-            <td><?= $lecturers->Tell; ?></td> 
-            <td><?= $lecturers->Workplace; ?></td>             
-			
-            <td>
-              <a href="edit.php?id=<?= $lecturers->L_ID ?>" class="btn btn-info">แก้ไข</a>
-              <a onclick="return confirm('ต้องการลบหรือไม่?')" 
-              href="delete.php?id=<?= $lecturers->L_ID ?>" class='btn btn-danger'>ลบ</a>
-            </td>
+            <td><?= $documents->D_ID; ?></td> 
+            <td><?= $documents->D_Name; ?></td> 
+            <td><?= $documents->D_Doc; ?></td> 
 
+			
+      <td>
+              <a href="edit.php?id=<?= $documents->D_ID ?>" class="btn btn-info">แก้ไข</a>
+              <a onclick="return confirm('ต้องการลบหรือไม่?')" 
+              href="delete.php?id=<?= $documents->D_ID ?>" class='btn btn-danger'>ลบ</a>
+            </td>
           </tr>
         <?php endforeach; ?>
 						

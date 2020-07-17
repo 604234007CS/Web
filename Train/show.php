@@ -1,3 +1,12 @@
+<?php
+require '../condb.php';
+$sql = 'SELECT * FROM training';
+$statement = $connection->prepare($sql);
+$statement->execute();
+$training = $statement->fetchAll(PDO::FETCH_OBJ);
+?>
+
+
 <?php require('../header.php');?>
 
 <!DOCTYPE html>
@@ -33,43 +42,41 @@
     	<div class="card-body">
       	<table class="table table-bordered">
         
+        
 		<tr> <!-- ชื่อที่จะเเสดงในตาราง -->
         	<th>รหัสการอบรม</th>
-         	<th>ชื่อการการอบรม</th>
-         	<th>วิทยากร</th>
-			    <th>สถานที่</th>
+         	<th>ชื่อการอบรม</th>
+         	<th>สถานที่</th>
+          <!-- <th>วิทยากร</th>
+          <th>เอกสารประกอบ</th> -->
           <th>วันที่</th>
           <th>เวลา</th>
-			<!-- <th>เอกสารประกอบการอบรม</th> -->
+          <th>เพิ่มเติม</th>
+		
       </tr>
 
-        
       <?php foreach($training as $trainings): ?>
           <tr>
+            
              <!-- สร้างใชื่อห้เหมือนในฐานข้อมูล -->
-            <td><?= $trainings->T_ID; ?></td>      
+            <td><?= $trainings->T_ID; ?></td> 
             <td><?= $trainings->T_Name; ?></td> 
             <td><?= $trainings->Address; ?></td> 
             <td><?= $trainings->Date; ?></td> 
-            <td><?= $trainings->Time; ?></td>
-            
-			<!-- <td>
-              <a href="edit.php?id=<?= $staffs->staff_id ?>" class="btn btn-info">แก้ไข</a>
+            <td><?= $trainings->Time; ?></td>   
+             
+            <td>
+              <a href="../Participants/show.php?id=<?= $participantss->P_ID ?>" class="btn btn-info">รายชื่อผู้เข้าอบรม</a>
+              <a href="edit.php?id=<?= $trainings->T_ID ?>" class="btn btn-info">แก้ไข</a>
               <a onclick="return confirm('ต้องการลบหรือไม่?')" 
-              href="delete.php?id=<?= $staffs->staff_id ?>" class='btn btn-danger'>ลบ</a>
-            </td> -->
+              href="delete.php?id=<?= $trainings->T_ID ?>" class='btn btn-danger'>ลบ</a>
+            </td>
           </tr>
         <?php endforeach; ?>
-						
-					
+      </table>
+		</table>
 
-
-
-			
-
-			<?php 
-			require('../footer.php');
-			?>
+<?php require('../footer.php');?>
 
 
 		
