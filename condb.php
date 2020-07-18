@@ -4,8 +4,8 @@ $username = 'root';
 $password = '';
 $options = [];
 try{
-    $connection = new PDO($dsn, $username, $password, $options);
+    $conn = new PDO($dsn, $username, $password, $options);
 } catch(PDOException $e){
-    echo 'connection.fail';
+    echo 'conn.fail';
 }
 ?>

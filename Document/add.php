@@ -7,7 +7,7 @@ if (isset($_POST['D_ID']) && isset($_POST['D_Name'])){
     
     $sql = "INSERT INTO document(D_ID, D_Name )
     VALUES('$D_ID', '$D_Name')";
-    $statement = $connection->prepare($sql);
+    $statement = $conn->prepare($sql);
     if($statement->execute())   {
         $message = 'เพิ่มการอบรมสำเร็จ';
         header("Location: ../Document/show.php");

@@ -1,7 +1,7 @@
 <?php
 require '../condb.php';
 $sql = 'SELECT * FROM document';
-$statement = $connection->prepare($sql);
+$statement = $conn->prepare($sql);
 $statement->execute();
 $document = $statement->fetchAll(PDO::FETCH_OBJ);
 ?>
@@ -66,14 +66,14 @@ $document = $statement->fetchAll(PDO::FETCH_OBJ);
         <?php endforeach; ?>
 						
 					
+  </body>  
+</html> 
 
 
 
 			
 
-			<?php 
-			require('../footer.php');
-			?>
+			
 
 
 		

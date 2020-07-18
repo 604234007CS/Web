@@ -3,7 +3,7 @@ require '../condb.php';
 
 $T_ID = $_GET['id'];
 $sql = 'SELECT * FROM training WHERE T_ID=?';
-$statement = $connection->prepare($sql);
+$statement = $conn->prepare($sql);
 $statement->execute([$T_ID]);
 $trainings = $statement->fetch(PDO::FETCH_OBJ);
 
@@ -17,7 +17,7 @@ if (isset($_POST['T_ID']) && isset($_POST['T_Name'])
     $Time = $_POST['Time']; 
      
     $sql = "UPDATE training SET T_ID=?, T_Name=?, Address=?, Date=?, Time=? WHERE T_ID=?";
-    $statement = $connection->prepare($sql);
+    $statement = $conn->prepare($sql);
     if($statement->execute([$T_ID, $T_Name, $Address, $Date, $Time, $T_ID]))   {
         $message = 'แก้ไขข้อมูลการอบรมสำเร็จ';
         header("Location: ../Train/show.php");
@@ -73,4 +73,3 @@ if (isset($_POST['T_ID']) && isset($_POST['T_Name'])
   </div>
 </div>
 
-<?php require '../footer.php'; ?>

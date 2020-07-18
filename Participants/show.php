@@ -72,7 +72,5 @@ $participants = $statement->fetchAll(PDO::FETCH_OBJ);
 
 
 			
-
-			<?php 
-			require('../footer.php');
-			?>
+  </body>  
+</html> 

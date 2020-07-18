@@ -12,7 +12,7 @@ if (isset($_POST['L_ID']) && isset($_POST['Dir_Name']) && isset($_POST['L_Name']
     $Password = $_POST['Password'];  
     $sql = "INSERT INTO lecturer(L_ID, Dir_Name, L_Name, L_Sname, Tell, Workplace, Username, Password )
     VALUES('$L_ID', '$Dir_Name', '$L_Name', '$L_Sname', '$Tell', '$Workplace', '$Username', '$Password')";
-    $statement = $connection->prepare($sql);
+    $statement = $conn->prepare($sql);
     if($statement->execute())   {
         $message = 'เพิ่มการอบรมสำเร็จ';
         header("Location: ../Lecturer/show.php");
@@ -21,7 +21,7 @@ if (isset($_POST['L_ID']) && isset($_POST['Dir_Name']) && isset($_POST['L_Name']
     }
 } 
 $sql1="SELECT * FROM lecturer ";
-$statement = $connection->prepare($sql1);
+$statement = $conn->prepare($sql1);
 $statement->execute();
 $lecturer = $statement->fetchAll(PDO::FETCH_OBJ);
 $index = sizeof($lecturer);
@@ -125,3 +125,6 @@ echo $index;
     </div>
   </div>
 </div>
+
+</body>  
+</html> 

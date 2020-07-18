@@ -79,4 +79,3 @@ if (isset($_POST['P_ID']) && isset($_POST['Dir_Name'])
   </div>
 </div>
 
-<?php require '../footer.php'; ?>

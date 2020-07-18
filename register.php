@@ -7,7 +7,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Login Page</title>
+        <title>Register</title>
 
         <link rel="stylesheet" href="style.css">
 
@@ -26,9 +26,9 @@
         </div>
 
 
-
+        
         <div class="header">
-            <h1>Login</h1>
+            <h1>Register</h1>
         </div>
 
         <form action="register_db.php" method="post">
@@ -39,15 +39,19 @@
             </div>
 
             <div class="input-group">
-                <label for="password">Password</label>
-                <input type="password" name="password">
+                <label for="password_1">Password</label>
+                <input type="password" name="password_1">
             </div>
-
 
             <div class="input-group">
-                <button type="submit" name="login_user" class="btn">Login</button>
+                <label for="password_2">Confirm Password</label>
+                <input type="password" name="password_2">
             </div>
-            <p>Not yet a member? <a href="register.php">Sign Up</a></p>
+
+            <div class="input-group">
+                <button type="submit" name="reg_user" class="btn">ลงทะเบียน</button>
+            </div>
+            <p>Already a member? <a href="login.php">Sign in</a></p>
             </form>
 
     </body>  

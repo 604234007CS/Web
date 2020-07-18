@@ -3,7 +3,7 @@ require '../condb.php';
 
 $L_ID = $_GET['id'];
 $sql = 'SELECT * FROM lecturer WHERE L_ID=?';
-$statement = $connection->prepare($sql);
+$statement = $conn->prepare($sql);
 $statement->execute([$L_ID]);
 $lecturers = $statement->fetch(PDO::FETCH_OBJ);
 
@@ -21,7 +21,7 @@ if (isset($_POST['L_ID']) && isset($_POST['Dir_Name'])
     $Username = $_POST['Username']; 
     $Password = $_POST['Password']; 
     $sql = "UPDATE lecturer SET L_ID=?, Dir_Name=?, L_Name=?, L_Sname=?, Tell=?, Workplace=?,  Username=?, Password=? WHERE L_ID=?";
-    $statement = $connection->prepare($sql);
+    $statement = $conn->prepare($sql);
     if($statement->execute([$L_ID, $Dir_Name, $L_Name, $L_Sname, $Tell, $Workplace, $Username, $Password, $L_ID]))   {
         $message = 'แก้ไขข้อมูลวิทยากรสำเร็จ';
         header("Location: ../Lecturer/show.php");

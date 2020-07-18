@@ -1,7 +1,7 @@
 <?php
 require '../condb.php';
 $sql = 'SELECT * FROM lecturer';
-$statement = $connection->prepare($sql);
+$statement = $conn->prepare($sql);
 $statement->execute();
 $lecturer = $statement->fetchAll(PDO::FETCH_OBJ);
 ?>
@@ -76,9 +76,8 @@ $lecturer = $statement->fetchAll(PDO::FETCH_OBJ);
 
 			
 
-			<?php 
-			require('../footer.php');
-			?>
+  </body>  
+</html> 
 
 
 		

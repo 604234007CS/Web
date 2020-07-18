@@ -1,7 +1,7 @@
 <?php
 require '../condb.php';
 $sql = 'SELECT * FROM training';
-$statement = $connection->prepare($sql);
+$statement = $conn->prepare($sql);
 $statement->execute();
 $training = $statement->fetchAll(PDO::FETCH_OBJ);
 ?>
@@ -11,27 +11,24 @@ $training = $statement->fetchAll(PDO::FETCH_OBJ);
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head>
-  <body>
-  <div class="container">
-  	<div class="row">
-    
-    <div class="col-md-12">
-        	<img src="../img/pic.jpg" class="img img-responsive" width="100%">
-            <!--size 980 x 200px -->
-    </div> 
-   
-   </div>
+      <head>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Train</title>
+
+          <link rel="stylesheet" href="style.css">
+      </head>
   
-  	<div class="row">
-    	<div class="col-md-12">
-      <?php require('menu.php');?>
-        </div>
-    </div>
+  <body>
+        <div class="container">
+            <div class="row">
+        
+                <div class="col-md-12">
+                    <img src="../img/pic.jpg" class="img img-responsive" width="100%">
+                    <!--size 980 x 200px -->
+                    <?php require('menu.php');?>
+                </div> 
+             </div>
         </div>
 
 	<div class="container contact">	
@@ -76,7 +73,9 @@ $training = $statement->fetchAll(PDO::FETCH_OBJ);
       </table>
 		</table>
 
-<?php require('../footer.php');?>
+
+  </body>  
+</html> 
 
 
 		
