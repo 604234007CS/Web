@@ -10,10 +10,14 @@
       </button>
 
       
-      <a class="navbar-brand" href="index.php">หน้าหลัก</a>
+      <a class="navbar-brand" href="home.php">หน้าหลัก</a>
       <a class="navbar-brand" href="Train/show.php">อบรม</a>
       <a class="navbar-brand" href="Document/show.php">เอกสาร</a>
       <a class="navbar-brand" href="Lecturer/show.php">วิทยากร</a>
+      <a class="navbar-brand" href="Participants/show.php">ผู้เข้าอบรม</a>
+
+      <a class="navbar-brand" right href="logout.php"  >ออกจากระบบ</a>
+
 
     </div>
 

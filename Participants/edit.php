@@ -3,7 +3,7 @@ require '../condb.php';
 
 $P_ID = $_GET['id'];
 $sql = 'SELECT * FROM participants WHERE P_ID=?';
-$statement = $connection->prepare($sql);
+$statement = $conn->prepare($sql);
 $statement->execute([$P_ID]);
 $participantss = $statement ->fetch(PDO::FETCH_OBJ);
 
@@ -19,7 +19,7 @@ if (isset($_POST['P_ID']) && isset($_POST['Dir_Name'])
     $Username = $_POST['Username'];
     $Password = $_POST['Password']; 
     $sql = "UPDATE participants SET P_ID=?, Dir_Name=?, P_Name=?, P_Sname=?, Tell=?, Username=?, Password=? WHERE P_ID=?";
-    $statement = $connection->prepare($sql);
+    $statement = $conn->prepare($sql);
     if($statement->execute([$P_ID, $Dir_Name, $P_Name, $P_Sname, $Tell, $Username, $Password, $P_ID]))   {
         $message = 'แก้ไขข้อมูลผู้เข้าอบรมสำเร็จ';
         header("Location: ../participants/show.php");
@@ -53,12 +53,9 @@ if (isset($_POST['P_ID']) && isset($_POST['Dir_Name'])
         
         
         <div class="form-group">
-          <label for="">ชื่อ</label>
+          <label for="">ชื่อ-นามสกุล</label>
           <input value="<?= $participantss->P_Name; ?>" type="text" name="P_Name" id="P_Name" class="form-control" placeholder = 'ชื่อ' required ></div>
         
-        <div class="form-group">
-          <label for="">นามสกุล</label>
-          <input value="<?= $participantss->P_Sname; ?>" type="text" name="P_Sname" id="P_Sname" class="form-control" placeholder = 'สกุล' required ></div>
        
         <div class="form-group">
           <label for="">หมายเลขโทรศัพท์</label>

@@ -1,67 +1,74 @@
 <?php require('header.php');?>
 
 <?php
-    
-    session_start();
+    include('condb.php');
 
-    if(!isset($_SESSION['username'])){
-        $_SESSION['msg'] = "You must log in first";
-        header('location: login.php');
+    if(isset($_POST['login_user'])){
+        $username = $_POST ['username'];
+        $password = $_POST['password'];
+        echo $username;
+        echo $password;
+        $sql = "SELECT * FROM admin WHERE username = '$username' AND password = '$password' ";
+        $stm = $conn->prepare($sql);
+        $stm->execute();
+        $login = $stm->fetch(PDO::FETCH_ASSOC);
+        echo $login['username'];
+        if($login == false){
+            echo 'Username & Password is invalid';
+        }else{
+            header('location:home.php');
+        }
     }
 
-    if (isset($_GET['logout'])){
-        session_destroy();
-        unset($_SESSION['username']);
-        header('location: login.php');
-    }
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Home Page</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login Page</title>
 
         <link rel="stylesheet" href="style.css">
+
     </head>
     <body>
 
         <div class="container">
             <div class="row">
-            
+        
                 <div class="col-md-12">
                     <img src="img/pic.jpg" class="img img-responsive" width="100%">
                     <!--size 980 x 200px -->
-                       <?php require('menu.php');?>
+
                 </div> 
-            </div>
+             </div>
         </div>
+
+
 
         <div class="header">
-            <h2>Home Page</h2>
+            <h1>Login</h1>
         </div>
 
-        <div class="content">
-            
-            <?php if (isset($_SESSION['success'])) : ?>
-                <div class="success">
-                    <h3>
-                    <?php
-                        echo $_SESSION['success'];
-                        unset($_SESSION ['success']);
-                    ?>
-                    </h3>
-                </div>
-            <?php endif ?>
+        <form method="post">
 
-        
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" name="username">
+            </div>
 
-            <?php if (isset($_SESSION['username'])) : ?>
-                <p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
-                <p><a href="index.php?logout='1'" style="color: red">ออกจากระบบ</a></p>
-            <?php endif ?>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" name="password">
+            </div>
 
-        </div>
+
+            <div class="input-group">
+                <button type="submit" name="login_user" class="btn">Login</button>
+            </div>
+            <p>Not yet a member? <a href="register.php">Sign Up</a></p>
+            </form>
+
     </body>  
 </html> 

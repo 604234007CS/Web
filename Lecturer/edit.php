@@ -9,20 +9,19 @@ $lecturers = $statement->fetch(PDO::FETCH_OBJ);
 
 $message = '';
 if (isset($_POST['L_ID']) && isset($_POST['Dir_Name']) 
-&& isset($_POST['L_Name']) && isset($_POST['L_Sname']) 
+&& isset($_POST['L_Name']) 
 && isset($_POST['Tell']) && isset($_POST['Workplace']) 
 && isset($_POST['Username']) && isset($_POST['Password']) ){
     $L_ID = $_POST['L_ID'];
     $Dir_Name = $_POST['Dir_Name']; 
-    $L_Name = $_POST['L_Name']; 
-    $L_Sname = $_POST['L_Sname']; 
+    $L_Name = $_POST['L_Name'];  
     $Tell = $_POST['Tell']; 
     $Workplace = $_POST['Workplace']; 
     $Username = $_POST['Username']; 
     $Password = $_POST['Password']; 
-    $sql = "UPDATE lecturer SET L_ID=?, Dir_Name=?, L_Name=?, L_Sname=?, Tell=?, Workplace=?,  Username=?, Password=? WHERE L_ID=?";
+    $sql = "UPDATE lecturer SET L_ID=?, Dir_Name=?, L_Name=?,  Tell=?, Workplace=?,  Username=?, Password=? WHERE L_ID=?";
     $statement = $conn->prepare($sql);
-    if($statement->execute([$L_ID, $Dir_Name, $L_Name, $L_Sname, $Tell, $Workplace, $Username, $Password, $L_ID]))   {
+    if($statement->execute([$L_ID, $Dir_Name, $L_Name, $Tell, $Workplace, $Username, $Password, $L_ID]))   {
         $message = 'แก้ไขข้อมูลวิทยากรสำเร็จ';
         header("Location: ../Lecturer/show.php");
     }
@@ -55,13 +54,9 @@ if (isset($_POST['L_ID']) && isset($_POST['Dir_Name'])
         
         
         <div class="form-group">
-          <label for="">ชื่อ</label>
+          <label for="">ชื่อ-นามสกุล</label>
           <input value="<?= $lecturers->L_Name; ?>" type="text" name="L_Name" id="L_Name" class="form-control" placeholder = 'ชื่อ' required ></div>
         
-        <div class="form-group">
-          <label for="">นามสกุล</label>
-          <input value="<?= $lecturers->L_Sname; ?>" type="text" name="L_Sname" id="L_Sname" class="form-control" placeholder = 'สกุล' required ></div>
-       
         <div class="form-group">
           <label for="">หมายเลขโทรศัพท์</label>
           <input value="<?= $lecturers->Tell; ?>" type="text" name="Tell" id="Tell" class="form-control" placeholder = 'หมายเลขโทรศัพท์' required ></div>
@@ -85,4 +80,3 @@ if (isset($_POST['L_ID']) && isset($_POST['Dir_Name'])
   </div>
 </div>
 
-<?php require '../footer.php'; ?>

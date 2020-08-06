@@ -1,30 +1,29 @@
 <?php
 require '../condb.php';
 $message = '';
-if (isset($_POST['P_ID']) && isset($_POST['Dir_Name']) && isset($_POST['P_Name']) && isset($_POST['P_Sname']) 
+if (isset($_POST['P_ID']) && isset($_POST['Dir_Name']) && isset($_POST['P_Name']) 
 && isset($_POST['Tell'])  && isset($_POST['Username']) && isset($_POST['Password'])){
     $P_ID = $_POST['P_ID'];
     $Dir_Name = $_POST['Dir_Name'];
     $P_Name = $_POST['P_Name'];
-    $P_Sname = $_POST['P_Sname']; 
     $Tell = $_POST['Tell']; 
     $Username = $_POST['Username'];
     $Password = $_POST['Password'];  
-    $sql = "INSERT INTO participants(P_ID, Dir_Name, P_Name, P_Sname, Tell, Username, Password )
-    VALUES('$P_ID', '$Dir_Name', '$P_Name', '$P_Sname', '$Tell', '$Username', '$Password')";
-    $statement = $connection->prepare($sql);
+    $sql = "INSERT INTO participants(P_ID, Dir_Name, P_Name, Tell, Username, Password )
+    VALUES('$P_ID', '$Dir_Name', '$P_Name', '$Tell', '$Username', '$Password')";
+    $statement = $conn->prepare($sql);
     if($statement->execute())   {
         $message = 'เพิ่มผู้เข้าอบรมสำเร็จ';
         header("Location: ../Participants/show.php");
     }
 }
 
-$sql1="SELECT * FROM participants ";
-$statement = $connection->prepare($sql1);
-$statement->execute();
-$participants = $statement->fetchAll(PDO::FETCH_OBJ);
-$index = sizeof($participants);
-echo $index;
+// $sql1="SELECT * FROM participants ";
+// $statement = $conn->prepare($sql1);
+// $statement->execute();
+// $participants = $statement->fetchAll(PDO::FETCH_OBJ);
+// $index = sizeof($participants);
+// echo $index;
 ?>
 
 
@@ -70,27 +69,19 @@ echo $index;
           <form method="post">   
           
 
-          <div class="form-group">
+          
+
+              <div class="form-group">
               <label for="">รหัสผู้เข้าอบรม</label>
-              <?php if($index == 0){?>
-              <input type="text" name="P_ID" id="P_ID" class="form-control"   value="P001" required >
-              <?php }else if($index !=0){?>
-                <input type="text" name="P_ID" id="P_ID" class="form-control"  
-                value="<?php $i = 1+$index; $auto_id = 'P00'.$i; echo $auto_id;?>" readonly >
-                <?php }?>
-              </div>
+              <input type="text" name="P_ID" id="P_ID" class="form-control" pattern = "P[0-9]{4}" title = "กรุณากรอก P เเละตัวเลข 4 หลัก" placeholder = 'ป้อน P เเละตัวเลข 4 หลัก' required  ></div>
           
             <div class="form-group">
               <label for="">คำนำหน้า</label>
               <input type="text" name="Dir_Name" id="Dir_Name" class="form-control" required ></div>
                     
             <div class="form-group">
-              <label for="">ชื่อ</label>
+              <label for="">ชื่อ-นามสกุล</label>
               <input type="text" name="P_Name" id="P_Name" class="form-control" required ></div>
-          
-            <div class="form-group">
-              <label for="">นามสกุล</label>
-              <input type="text" name="P_Sname" id="P_Sname" class="form-control" required ></div>
 
             <div class="form-group">
               <label for="">หมายเลขโทรศัพท์</label>
@@ -107,7 +98,7 @@ echo $index;
           
             <div class="form-group">
               <button type="submit" class="btn btn-info">เพิ่มผู้เข้าอบรม</button></div>
-              <!-- <a href="edit.php?id=<?= $participants->P_ID ?>" class="btn btn-info">แก้ไข</a> -->
+              <a href="show.php" class="btn btn-danger">ยกเลิก</a>
 
 
 

@@ -1,17 +1,20 @@
 <?php
 require '../condb.php';
 $message = '';
-if (isset($_POST['L_ID']) && isset($_POST['Dir_Name']) && isset($_POST['L_Name']) && isset($_POST['L_Sname']) && isset($_POST['Tell']) && isset($_POST['Workplace']) && isset($_POST['Username']) && isset($_POST['Password'])){
+if (isset($_POST['L_ID']) && isset($_POST['Dir_Name']) 
+&& isset($_POST['L_Name'])  
+&& isset($_POST['Tell']) && isset($_POST['Workplace']) 
+&& isset($_POST['Username']) && isset($_POST['Password'])  ){
     $L_ID = $_POST['L_ID'];
     $Dir_Name = $_POST['Dir_Name'];
     $L_Name = $_POST['L_Name'];
-    $L_Sname = $_POST['L_Sname']; 
+  
     $Tell = $_POST['Tell']; 
     $Workplace = $_POST['Workplace']; 
     $Username = $_POST['Username'];
     $Password = $_POST['Password'];  
-    $sql = "INSERT INTO lecturer(L_ID, Dir_Name, L_Name, L_Sname, Tell, Workplace, Username, Password )
-    VALUES('$L_ID', '$Dir_Name', '$L_Name', '$L_Sname', '$Tell', '$Workplace', '$Username', '$Password')";
+    $sql = "INSERT INTO lecturer(L_ID, Dir_Name, L_Name, Tell, Workplace, Username, Password )
+    VALUES('$L_ID', '$Dir_Name', '$L_Name','$Tell', '$Workplace', '$Username', '$Password')";
     $statement = $conn->prepare($sql);
     if($statement->execute())   {
         $message = 'เพิ่มการอบรมสำเร็จ';
@@ -20,13 +23,9 @@ if (isset($_POST['L_ID']) && isset($_POST['Dir_Name']) && isset($_POST['L_Name']
 
     }
 } 
-$sql1="SELECT * FROM lecturer ";
-$statement = $conn->prepare($sql1);
-$statement->execute();
-$lecturer = $statement->fetchAll(PDO::FETCH_OBJ);
-$index = sizeof($lecturer);
-echo $index;
+
 ?>
+
 
 
 <?php require('../header.php');?>
@@ -70,32 +69,22 @@ echo $index;
 
       <form method="post">   
       
-      
+
         <div class="form-group">
-          <label for="">รหัสวิทยากร</label>
-          <?php if($index == 0){?>
-          <input type="text" name="L_ID" id="L_ID" class="form-control"   value="L001" required >
-          <?php }else if($index !=0){?>
-            <input type="text" name="L_ID" id="L_ID" class="form-control"  
-            value="<?php $i = 1+$index; $auto_id = 'L00'.$i; echo $auto_id;?>" readonly >
-            <?php }?>
-          </div>
+            <label for="">รหัสวิทยากร</label>
+            <input type="text" name="L_ID" id="L_ID" class="form-control" pattern = "L[0-9]{4}" title = "กรุณากรอก L เเละตัวเลข 4 หลัก" placeholder = 'ป้อน L เเละตัวเลข 4 หลัก' required ></div>
           
         <div class="form-group">
           <label for="">คำนำหน้า</label>
           <input type="text" name="Dir_Name" id="Dir_Name" class="form-control"  required ></div>
          
         <div class="form-group">
-          <label for="">ชื่อ</label>
+          <label for="">ชื่อ-นามสกุล</label>
           <input type="text" name="L_Name" id="L_Name" class="form-control" required ></div>
        
         <div class="form-group">
-          <label for="">นามสกุล</label>
-          <input type="text" name="L_Sname" id="L_Sname" class="form-control" required ></div>
-
-        <div class="form-group">
           <label for="">หมายเลขโทรศัพท์</label>
-          <input type="text" name="Tell" id="Tell" class="form-control" required ></div>
+          <input type="text" name="Tell" id="Tell" class="form-control" required ></>
 
         <div class="form-group">
           <label for="">สถานที่ทำงาน</label>
@@ -108,12 +97,6 @@ echo $index;
         <div class="form-group">
           <label for="">รหัสผ่าน</label>
           <input type="password" name="Password" id="Password" class="form-control" required ></div>
-<!-- 
-        <div class="form-group">
-          <label for="">รหัสการอบรม</label>
-          <input type="text" name="lecturer" id="lesturer" class="form-control" required ></div>
-         -->
-        
       
         <div class="form-group">
         <button type="submit" class="btn btn-success">เพิ่มวิทยากร</button>

@@ -1,7 +1,7 @@
 <?php
 require '../condb.php';
 $sql = 'SELECT * FROM participants';
-$statement = $connection->prepare($sql);
+$statement = $conn->prepare($sql);
 $statement->execute();
 $participants = $statement->fetchAll(PDO::FETCH_OBJ);
 ?>
@@ -44,11 +44,10 @@ $participants = $statement->fetchAll(PDO::FETCH_OBJ);
         
 		    <tr> <!-- ชื่อที่จะเเสดงในตาราง -->
         	<th>รหัสผู้เข้าอบรม</th>
-            <th>คำนำหน้า</th>
-         	<th>ชื่อ</th>
-         	<th>นามสกุล</th>
-            <th>หมายเลขโทรศัพท์</th>
-            <th>เพิ่มเติม</th>
+          <th>คำนำหน้า</th>
+         	<th>ชื่อ-นามสกุล</th>
+          <th>หมายเลขโทรศัพท์</th>
+          <th>เพิ่มเติม</th>
         </tr>
 
         <?php foreach($participants as $participantss): ?>
@@ -56,7 +55,6 @@ $participants = $statement->fetchAll(PDO::FETCH_OBJ);
             <td><?= $participantss->P_ID; ?></td> 
             <td><?= $participantss->Dir_Name; ?></td> 
             <td><?= $participantss->P_Name; ?></td> 
-            <td><?= $participantss->P_Sname; ?></td> 
             <td><?= $participantss->Tell; ?></td> 
 			
       <td>

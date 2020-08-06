@@ -44,11 +44,11 @@ $training = $statement->fetchAll(PDO::FETCH_OBJ);
         	<th>รหัสการอบรม</th>
          	<th>ชื่อการอบรม</th>
          	<th>สถานที่</th>
-          <!-- <th>วิทยากร</th>
-          <th>เอกสารประกอบ</th> -->
           <th>วันที่</th>
           <th>เวลา</th>
           <th>เพิ่มเติม</th>
+          <th>วิทยากร</th>
+          <th>เอกสารประกอบ</th>
 		
       </tr>
 
@@ -63,11 +63,12 @@ $training = $statement->fetchAll(PDO::FETCH_OBJ);
             <td><?= $trainings->Time; ?></td>   
              
             <td>
-              <a href="../Participants/show.php?id=<?= $participantss->P_ID ?>" class="btn btn-info">รายชื่อผู้เข้าอบรม</a>
-              <a href="edit.php?id=<?= $trainings->T_ID ?>" class="btn btn-info">แก้ไข</a>
-              <a onclick="return confirm('ต้องการลบหรือไม่?')" 
+              <a href="show_name.php?id=<?= $trainings->T_ID ?>" class="btn btn-info">รายชื่อผู้เข้าอบรม</a>
+               <a onclick="return confirm('ต้องการลบหรือไม่?')" 
               href="delete.php?id=<?= $trainings->T_ID ?>" class='btn btn-danger'>ลบ</a>
-            </td>
+              <a href="edit.php?id=<?= $trainings->T_ID ?>" class='btn btn-danger'>แก้ไข</a>
+
+          </td>
           </tr>
         <?php endforeach; ?>
       </table>

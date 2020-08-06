@@ -60,7 +60,7 @@ if (isset($_POST['D_ID']) && isset($_POST['D_Name'])){
 
         <div class="form-group">
           <label for="">รหัสเอกสาร</label>
-          <input type="text" name="D_ID" id="D_ID" class="form-control"  pattern = "d[0-9]{3}" title = "กรุณากรอกตัวอักษร d และตัวเลข 3 หลัก" placeholder = 'กรุณากรอกตัวอักษร d และตัวเลข 3 หลัก' required ></div>
+          <input type="text" name="D_ID" id="D_ID" class="form-control"  pattern = "D[0-9]{4}" title = "กรุณากรอกตัวอักษร D และตัวเลข 3 หลัก" placeholder = 'กรุณากรอกตัวอักษร D และตัวเลข 4 หลัก' required ></div>
        
         <div class="form-group">
           <label for="">ชื่อเอกสาร</label>

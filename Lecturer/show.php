@@ -44,12 +44,11 @@ $lecturer = $statement->fetchAll(PDO::FETCH_OBJ);
         
 		    <tr> <!-- ชื่อที่จะเเสดงในตาราง -->
         	<th>รหัสวิทยากร</th>
-          <th>คำนำหน้า</th>
-         	<th>ชื่อ</th>
-         	<th>นามสกุล</th>
-          <th>หมายเลขโทรศัพท์</th>
-          <th>สถานที่ทำงาน</th>
-          <th>เพิ่มเติม</th>
+            <th>คำนำหน้า</th>
+         	<th>ชื่อ-นามสกุล</th>
+            <th>หมายเลขโทรศัพท์</th>
+            <th>สถานที่ทำงาน</th>
+            <th>เพิ่มเติม</th>
         </tr>
 
         <?php foreach($lecturer as $lecturers): ?>
@@ -57,7 +56,6 @@ $lecturer = $statement->fetchAll(PDO::FETCH_OBJ);
             <td><?= $lecturers->L_ID; ?></td> 
             <td><?= $lecturers->Dir_Name; ?></td> 
             <td><?= $lecturers->L_Name; ?></td> 
-            <td><?= $lecturers->L_Sname; ?></td> 
             <td><?= $lecturers->Tell; ?></td> 
             <td><?= $lecturers->Workplace; ?></td>             
 			

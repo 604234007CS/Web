@@ -32,7 +32,7 @@ if (isset($_POST['T_ID']) && isset($_POST['T_Name']) && isset($_POST['Address'])
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Train</title>
+        <title>RegisTrain</title>
 
         <link rel="stylesheet" href="style.css">
     </head>
@@ -53,7 +53,7 @@ if (isset($_POST['T_ID']) && isset($_POST['T_Name']) && isset($_POST['Address'])
     <div class="container">
       <div class = "card mt-4">
         <div class = "card-header">
-        <h2>รายละเอียดการอบรม</h2>
+        <!-- <h2>รายละเอียดการอบรม</h2> -->
         </div>
         <div class = "card-body">
         <?php if(!empty($message)): ?>
@@ -64,38 +64,22 @@ if (isset($_POST['T_ID']) && isset($_POST['T_Name']) && isset($_POST['Address'])
     
           <form method="post"> 
 
-          <div class="form-group">
-              <label for="">รหัสการอบรม</label>
-              <input type="text" name="T_ID" id="T_ID" class="form-control" pattern = "T[0-9]{4}" title = "กรุณากรอก T เเละตัวเลข 4 หลัก" placeholder = 'ป้อน T เเละตัวเลข 4 หลัก' required ></div>
-          
             <div class="form-group">
-              <label for="">ชื่อการอบรม</label>
+              <label for="">คำนำหน้า</label>
               <input type="text" name="T_Name" id="T_Name" class="form-control" required ></div>
             
             <div class="form-group">
-              <label for="">สถานที่</label>
+              <label for="">ชื่อ-นามสกุล</label>
               <input type="text" name="Address" id="Address" class="form-control" required ></div>
             
             <div class="form-group">
-              <label for="">วันที่</label>
-              <input type="date" name="Date" id="Date" class="form-control" required ></div>
-    
-            <div class="form-group">
-              <label for="">เวลา</label>
-              <input type="text" name="Time" id="Time" class="form-control" required ></div>
-<!--     
-              <div class="form-group">
-              <label for="">วิทยากร</label>
-              <input type="text" name="lecturer" id="lesturer" class="form-control" required ></div>
-             
-              <div class="form-group">
-              <label for="">เอกสารประกอบการอบรม</label>
-              <input type="text" name="Document" id="lesturer" class="form-control" required ></div> -->
-
+              <label for="">เบอร์โทรศัพท์</label>
+              <input type="text" name="Address" id="Address" class="form-control" required ></div>
+            
           
             <div class="form-group">
-                <button type="submit" class="btn btn-info">เพิ่มการอบรม</button></div>
-                <a href="show.php" class="btn btn-danger">ยกเลิก</a>
+                <button type="submit" class="btn btn-info">ลงทะเบียนอบรม</button></div>
+                <a href="show_name.php" class="btn btn-danger">ยกเลิก</a>
 
           </form>
         </div>
