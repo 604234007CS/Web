@@ -15,7 +15,7 @@
       <a class="navbar-brand" href="../Document/show.php">เอกสาร</a>
       <a class="navbar-brand" href="show.php">วิทยากร</a>
       <a class="navbar-brand" href="../Participants/show.php">ผู้เข้าอบรม</a>
-      <a class="navbar-brand" right href="../logout.php"  >ออกจากระบบ</a>
+      <a class="navbar-brand" href="../logout.php"  >ออกจากระบบ</a> 
 
 
     </div>

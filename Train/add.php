@@ -1,12 +1,14 @@
 <?php
 require '../condb.php';
 $message = '';
-if (isset($_POST['T_ID']) && isset($_POST['T_Name']) && isset($_POST['Address']) && isset($_POST['Date']) && isset($_POST['Time']) ){
+if (isset($_POST['T_ID']) && isset($_POST['T_Name']) && isset($_POST['Address']) && isset($_POST['Date'])){
     $T_ID = $_POST['T_ID'];
     $T_Name = $_POST['T_Name'];
     $Address = $_POST['Address'];
     $Date = $_POST['Date']; 
     $Time = $_POST['Time'];
+    // $Document = $_POST['Document'];
+
     
     $sql = "INSERT INTO training(T_ID, T_Name, Address, Date, Time)
     VALUES('$T_ID', '$T_Name', '$Address', '$Date', '$Time')";
@@ -62,7 +64,7 @@ if (isset($_POST['T_ID']) && isset($_POST['T_Name']) && isset($_POST['Address'])
         </div>
         <?php endif; ?>
     
-          <form method="post"> 
+          <form action="" method="post" entype="multipart/form-data"> 
 
           <div class="form-group">
               <label for="">รหัสการอบรม</label>
@@ -83,16 +85,12 @@ if (isset($_POST['T_ID']) && isset($_POST['T_Name']) && isset($_POST['Address'])
             <div class="form-group">
               <label for="">เวลา</label>
               <input type="text" name="Time" id="Time" class="form-control" required ></div>
-<!--     
-              <div class="form-group">
-              <label for="">วิทยากร</label>
-              <input type="text" name="lecturer" id="lesturer" class="form-control" required ></div>
-             
-              <div class="form-group">
-              <label for="">เอกสารประกอบการอบรม</label>
-              <input type="text" name="Document" id="lesturer" class="form-control" required ></div> -->
 
-          
+            <div class="form-group">
+              <label for="">เอกสารประกอบการอบรม</label>
+              <input type="file" name="Document" id="Document"></div>
+             
+             
             <div class="form-group">
                 <button type="submit" class="btn btn-info">เพิ่มการอบรม</button></div>
                 <a href="show.php" class="btn btn-danger">ยกเลิก</a>

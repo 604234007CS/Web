@@ -46,9 +46,10 @@ $training = $statement->fetchAll(PDO::FETCH_OBJ);
          	<th>สถานที่</th>
           <th>วันที่</th>
           <th>เวลา</th>
-          <th>เพิ่มเติม</th>
-          <th>วิทยากร</th>
+          <!-- <th>วิทยากร</th> -->
           <th>เอกสารประกอบ</th>
+          <th>เพิ่มเติม</th>
+
 		
       </tr>
 
@@ -60,8 +61,8 @@ $training = $statement->fetchAll(PDO::FETCH_OBJ);
             <td><?= $trainings->T_Name; ?></td> 
             <td><?= $trainings->Address; ?></td> 
             <td><?= $trainings->Date; ?></td> 
-            <td><?= $trainings->Time; ?></td>   
-             
+            <td><?= $trainings->Time; ?></td>    
+            <!-- <td><?= $trainings->Document; ?></td> -->
             <td>
               <a href="show_name.php?id=<?= $trainings->T_ID ?>" class="btn btn-info">รายชื่อผู้เข้าอบรม</a>
                <a onclick="return confirm('ต้องการลบหรือไม่?')" 

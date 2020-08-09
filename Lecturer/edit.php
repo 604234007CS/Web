@@ -75,6 +75,8 @@ if (isset($_POST['L_ID']) && isset($_POST['Dir_Name'])
 
         <div class="form-group">
            <button type="submit" class="btn btn-info">แก้ไขข้อมูลวิทยากร</button></div>
+           <a href="show.php" class="btn btn-danger">ยกเลิก</a>
+
       </form>
     </div>
   </div>

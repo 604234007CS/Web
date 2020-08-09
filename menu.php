@@ -16,7 +16,7 @@
       <a class="navbar-brand" href="Lecturer/show.php">วิทยากร</a>
       <a class="navbar-brand" href="Participants/show.php">ผู้เข้าอบรม</a>
 
-      <a class="navbar-brand" right href="logout.php"  >ออกจากระบบ</a>
+      <a class="navbar-brand" right href="logout.php"  >ออกจากระบบ</a> 
 
 
     </div>

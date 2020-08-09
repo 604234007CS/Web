@@ -73,11 +73,17 @@ if (isset($_POST['L_ID']) && isset($_POST['Dir_Name'])
         <div class="form-group">
             <label for="">รหัสวิทยากร</label>
             <input type="text" name="L_ID" id="L_ID" class="form-control" pattern = "L[0-9]{4}" title = "กรุณากรอก L เเละตัวเลข 4 หลัก" placeholder = 'ป้อน L เเละตัวเลข 4 หลัก' required ></div>
-          
-        <div class="form-group">
-          <label for="">คำนำหน้า</label>
-          <input type="text" name="Dir_Name" id="Dir_Name" class="form-control"  required ></div>
-         
+
+          <div class="form-group"> 
+            <label for="">คำนำหน้า</label>
+            <select name="Dir_Name" id="Dir_Name" class="form-control" placeholder = 'คำนำหน้า' required >
+                <option value="">นาย</option>
+                <option value="">นางสาว</option>
+                <option value="">นาง</option>
+            </select>
+          </div>
+
+
         <div class="form-group">
           <label for="">ชื่อ-นามสกุล</label>
           <input type="text" name="L_Name" id="L_Name" class="form-control" required ></div>
