@@ -64,10 +64,11 @@ $training = $statement->fetchAll(PDO::FETCH_OBJ);
             <td><?= $trainings->Time; ?></td>    
             <!-- <td><?= $trainings->Document; ?></td> -->
             <td>
-              <a href="show_name.php?id=<?= $trainings->T_ID ?>" class="btn btn-info">รายชื่อผู้เข้าอบรม</a>
+              <a href="show_name.php?id=<?= $trainings->T_ID ?>" >รายชื่อผู้เข้าอบรม</a>
                <a onclick="return confirm('ต้องการลบหรือไม่?')" 
-              href="delete.php?id=<?= $trainings->T_ID ?>" class='btn btn-danger'>ลบ</a>
-              <a href="edit.php?id=<?= $trainings->T_ID ?>" class='btn btn-danger'>แก้ไข</a>
+              href="delete.php?id=<?= $trainings->T_ID ?>" >ลบ</a>
+              <a href="edit.php?id=<?= $trainings->T_ID ?>">แก้ไข</a>
+
 
           </td>
           </tr>

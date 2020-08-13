@@ -28,21 +28,13 @@
 	<div class="container contact">	
     	<table id="Name" class="table table-bordered table-striped">
 		<h2>รายชื่อผู้เข้าอบรม</h2>
-      	<a href="add_name.php" class='btn btn-info'>ลงทะเบียนเข้าอบรม</a>
+      	<!-- <a href="add_name.php" class='btn btn-info'>ลงทะเบียนเข้าอบรม</a> -->
    		</div>
     	<div class="card-body">
       	<table class="table table-bordered">
         
         
-		<tr> <!-- ชื่อที่จะเเสดงในตาราง -->
-            <th>คำนำหน้า</th>
-            <th>ชื่อผู้เข้าอบรม</th>
-            <th>หมายเลขโทรศัพท์</th>
-            <th>เพิ่มเติม</th>
-
-         
 		
-      </tr>
 
       
              

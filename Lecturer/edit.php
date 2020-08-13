@@ -46,13 +46,16 @@ if (isset($_POST['L_ID']) && isset($_POST['Dir_Name'])
       <form method="post">        
         <div class="form-group">
           <label for="">รหัสวิทยากร</label>
-          <input value="<?= $lecturers->L_ID; ?>" type="text" name="L_ID" id="L_ID" class="form-control" placeholder = 'รหัสวิทยากร' pattern = "l[0-9]{3}" title = "กรุณากรอกตัวอักษร l และตัวเลข 3 หลัก" readonly ></div>
-        
-        <div class="form-group">
-          <label for="">คำนำหน้า</label>
-          <input value="<?= $lecturers->Dir_Name; ?>" type="text" name="Dir_Name" id="Dir_Name" class="form-control" placeholder = 'คำนำหน้า' required ></div>
-        
-        
+          <input value="<?= $lecturers->L_ID; ?>" type="text" name="L_ID" id="L_ID" class="form-control" placeholder = 'รหัสวิทยากร' pattern = "L[0-9]{4}" title = "กรุณากรอกตัวอักษร L และตัวเลข 4 หลัก" readonly ></div>    
+
+         <div class="form-group"> 
+            <label for="">คำนำหน้า</label>
+            <select value="<?= $lecturers->Dir_Name; ?>" name="Dir_Name" id="Dir_Name" class="form-control" placeholder = 'คำนำหน้า' required >
+                <option value="นาย">นาย</option>
+                <option value="นางสาว">นางสาว</option>
+                <option value="นาง">นาง</option>
+            </select></div>
+
         <div class="form-group">
           <label for="">ชื่อ-นามสกุล</label>
           <input value="<?= $lecturers->L_Name; ?>" type="text" name="L_Name" id="L_Name" class="form-control" placeholder = 'ชื่อ' required ></div>

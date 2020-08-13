@@ -48,7 +48,7 @@ $lecturer = $statement->fetchAll(PDO::FETCH_OBJ);
          	<th>ชื่อ-นามสกุล</th>
             <th>หมายเลขโทรศัพท์</th>
             <th>สถานที่ทำงาน</th>
-            <th>ลบ/แก้ไข</th>
+            <th>แก้ไข/ลบ</th>
         </tr>
 
         <?php foreach($lecturer as $lecturers): ?>

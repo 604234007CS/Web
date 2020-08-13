@@ -12,8 +12,8 @@
         VALUES('$username', '$email', '$password')";
         $statement = $conn->prepare($sql);
         if($statement->execute())   {
-            $message = 'เพิ่มการอบรมสำเร็จ';
-            header("Location: login.php");
+            $message = 'ลงทะเบียนสำเร็จ';
+            header("Location: index.php");
         }
 
     }
@@ -78,7 +78,7 @@
             <div class="input-group">
                 <button type="submit" name="register_btn" class="btn">ลงทะเบียน</button>
             </div>
-            <p>Already a member? <a href="login.php">Sign in</a></p>
+            <p>Already a member? <a href="index.php">Sign in</a></p>
             </form>
 
     </body>  

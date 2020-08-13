@@ -77,9 +77,9 @@ if (isset($_POST['L_ID']) && isset($_POST['Dir_Name'])
           <div class="form-group"> 
             <label for="">คำนำหน้า</label>
             <select name="Dir_Name" id="Dir_Name" class="form-control" placeholder = 'คำนำหน้า' required >
-                <option value="">นาย</option>
-                <option value="">นางสาว</option>
-                <option value="">นาง</option>
+                <option value="นาย">นาย</option>
+                <option value="นางสาว">นางสาว</option>
+                <option value="นาง">นาง</option>
             </select>
           </div>
 

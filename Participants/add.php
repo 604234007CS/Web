@@ -1,3 +1,4 @@
+
 <?php
 require '../condb.php';
 $message = '';
@@ -75,10 +76,17 @@ if (isset($_POST['P_ID']) && isset($_POST['Dir_Name']) && isset($_POST['P_Name']
               <label for="">รหัสผู้เข้าอบรม</label>
               <input type="text" name="P_ID" id="P_ID" class="form-control" pattern = "P[0-9]{4}" title = "กรุณากรอก P เเละตัวเลข 4 หลัก" placeholder = 'ป้อน P เเละตัวเลข 4 หลัก' required  ></div>
           
-            <div class="form-group">
+           
+            <div class="form-group"> 
               <label for="">คำนำหน้า</label>
-              <input type="text" name="Dir_Name" id="Dir_Name" class="form-control" required ></div>
-                    
+              <select name="Dir_Name" id="Dir_Name" class="form-control" placeholder = 'คำนำหน้า' required >
+                  <option value="นาย">นาย</option>
+                  <option value="นางสาว">นางสาว</option>
+                  <option value="นาง">นาง</option>
+              </select>
+            </div>
+
+
             <div class="form-group">
               <label for="">ชื่อ-นามสกุล</label>
               <input type="text" name="P_Name" id="P_Name" class="form-control" required ></div>

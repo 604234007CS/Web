@@ -47,7 +47,7 @@ $participants = $statement->fetchAll(PDO::FETCH_OBJ);
           <th>คำนำหน้า</th>
          	<th>ชื่อ-นามสกุล</th>
           <th>หมายเลขโทรศัพท์</th>
-          <th>เพิ่มเติม</th>
+          <th>แก้ไข/ลบ</th>
         </tr>
 
         <?php foreach($participants as $participantss): ?>
