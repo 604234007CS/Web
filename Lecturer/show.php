@@ -37,7 +37,7 @@ $lecturer = $statement->fetchAll(PDO::FETCH_OBJ);
         <div class="container contact">	
     	<table id="Train" class="table table-bordered table-striped">
       <h2>ข้อมูลวิทยากร</h2>
-      <a href="add.php" class='btn btn-info'>เพิ่มวิทยากร</a>
+      <a href="add.php" class='btn btn-success'>เพิ่มวิทยากร</a>
           </div>
     	<div class="card-body">
       	<table class="table table-bordered">
@@ -60,7 +60,7 @@ $lecturer = $statement->fetchAll(PDO::FETCH_OBJ);
             <td><?= $lecturers->Workplace; ?></td>             
 			
             <td>
-              <a href="edit.php?id=<?= $lecturers->L_ID ?>" class="btn btn-info">แก้ไข</a>
+              <a href="edit.php?id=<?= $lecturers->L_ID ?>" class="btn btn-warning">แก้ไข</a>
               <a onclick="return confirm('ต้องการลบหรือไม่?')" 
               href="delete.php?id=<?= $lecturers->L_ID ?>" class='btn btn-danger'>ลบ</a>
             </td>

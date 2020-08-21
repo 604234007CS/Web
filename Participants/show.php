@@ -35,9 +35,9 @@ $participants = $statement->fetchAll(PDO::FETCH_OBJ);
 
 
         <div class="container contact">	
-    	<table id="Train" class="table table-bordered table-striped">
+    	<table id="Train" class="table table-bordered table-striped">   
       <h2>ข้อมูลผู้เข้าอบรม</h2>
-      <a href="add.php" class='btn btn-info'>เพิ่มผู้เข้าอบรม</a>
+      <a href="add.php" class='btn btn-success'>เพิ่มผู้เข้าอบรม</a>
           </div>
     	<div class="card-body">
       	<table class="table table-bordered">
@@ -58,11 +58,12 @@ $participants = $statement->fetchAll(PDO::FETCH_OBJ);
             <td><?= $participantss->Tell; ?></td> 
 			
       <td>
-              <a href="edit.php?id=<?= $participantss->P_ID ?>" class="btn btn-info">แก้ไข</a>
+              <a href="edit.php?id=<?= $participantss->P_ID ?>" class="btn btn-warning">แก้ไข</a>
               <a onclick="return confirm('ต้องการลบหรือไม่?')" 
               href="delete.php?id=<?= $participantss->P_ID ?>" class='btn btn-danger'>ลบ</a>
             </td>
           </tr>
+          
         <?php endforeach; ?>
 						
 					

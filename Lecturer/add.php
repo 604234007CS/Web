@@ -8,7 +8,6 @@ if (isset($_POST['L_ID']) && isset($_POST['Dir_Name'])
     $L_ID = $_POST['L_ID'];
     $Dir_Name = $_POST['Dir_Name'];
     $L_Name = $_POST['L_Name'];
-  
     $Tell = $_POST['Tell']; 
     $Workplace = $_POST['Workplace']; 
     $Username = $_POST['Username'];
@@ -70,9 +69,9 @@ if (isset($_POST['L_ID']) && isset($_POST['Dir_Name'])
       <form method="post">   
       
 
-        <div class="form-group">
+        <!-- <div class="form-group">
             <label for="">รหัสวิทยากร</label>
-            <input type="text" name="L_ID" id="L_ID" class="form-control" pattern = "L[0-9]{4}" title = "กรุณากรอก L เเละตัวเลข 4 หลัก" placeholder = 'ป้อน L เเละตัวเลข 4 หลัก' required ></div>
+            <input type="text" name="L_ID" id="L_ID" class="form-control" pattern = "L[0-9]{4}" title = "กรุณากรอก L เเละตัวเลข 4 หลัก" placeholder = 'ป้อน L เเละตัวเลข 4 หลัก' required ></div> -->
 
           <div class="form-group"> 
             <label for="">คำนำหน้า</label>

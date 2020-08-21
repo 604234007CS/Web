@@ -1,12 +1,13 @@
 <?php
 require '../condb.php';
 $message = '';
-if (isset($_POST['D_ID']) && isset($_POST['D_Name'])){
-    $D_ID = $_POST['D_ID'];
-    $D_Name = $_POST['D_Name'];
+if (isset($_POST['id']) && isset($_POST['name'])  && isset($_POST['file_name'])){
+    $id = $_POST['id'];
+    $name = $_POST['name'];
+    $file_name = $_FILES['file_name'];
     
-    $sql = "INSERT INTO document(D_ID, D_Name )
-    VALUES('$D_ID', '$D_Name')";
+    $sql = "INSERT INTO upfile(id, name, file_name )
+    VALUES('$id', '$name', '$file_name')";
     $statement = $conn->prepare($sql);
     if($statement->execute())   {
         $message = 'เพิ่มการอบรมสำเร็จ';
@@ -55,21 +56,18 @@ if (isset($_POST['D_ID']) && isset($_POST['D_Name'])){
     </div>
     <?php endif; ?>
 
-      <form action="" method="post" entype="multipart/form-data">   
-      
+      <form action="addfile.php" method="post" entype="multipart/form-data">   
 
         <div class="form-group">
-          <!-- <label for="">รหัสเอกสาร</label>
-          <input type="text" name="D_ID" id="D_ID" class="form-control"  pattern = "D[0-9]{4}" title = "กรุณากรอกตัวอักษร D และตัวเลข 3 หลัก" placeholder = 'กรุณากรอกตัวอักษร D และตัวเลข 4 หลัก' required ></div> -->
-       
-        <div class="form-group">
-          <label for="">ชื่อเอกสาร</label>
-          <input type="text" name="D_Name" id="D_Name" class="form-control" required ></div>
+          <label for="name">ชื่อเอกสาร</label>
+          <input type="text" name="name" id="name" class="form-control" required >
+        </div>
                  
         <div class="form-group">
-           <label for="">ไฟล์เอกสารประกอบการอบรม</label>
-             <input type="file" name="D_file"></from> 
-        
+           <label for="file_name">เลือกไฟล์เอกสาร</label>
+             <input type="file" name="fileToUpload" id="fileToUpload" accept= ".jpg, .jpeg, .png" required></from> 
+        </div>
+
       
         <div class="form-group">
            <button type="submit" class="btn btn-info">เพิ่มเอกสาร</button></div>

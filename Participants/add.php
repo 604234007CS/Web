@@ -2,16 +2,17 @@
 <?php
 require '../condb.php';
 $message = '';
-if (isset($_POST['P_ID']) && isset($_POST['Dir_Name']) && isset($_POST['P_Name']) 
+if (isset($_POST['status_id']) && isset($_POST['P_ID']) && isset($_POST['Dir_Name']) && isset($_POST['P_Name']) 
 && isset($_POST['Tell'])  && isset($_POST['Username']) && isset($_POST['Password'])){
+    $status_id = $_POST['status_id'];
     $P_ID = $_POST['P_ID'];
     $Dir_Name = $_POST['Dir_Name'];
     $P_Name = $_POST['P_Name'];
     $Tell = $_POST['Tell']; 
     $Username = $_POST['Username'];
     $Password = $_POST['Password'];  
-    $sql = "INSERT INTO participants(P_ID, Dir_Name, P_Name, Tell, Username, Password )
-    VALUES('$P_ID', '$Dir_Name', '$P_Name', '$Tell', '$Username', '$Password')";
+    $sql = "INSERT INTO participants(status_id, P_ID, Dir_Name, P_Name, Tell, Username, Password )
+    VALUES('$status_id',$P_ID', '$Dir_Name', '$P_Name', '$Tell', '$Username', '$Password')";
     $statement = $conn->prepare($sql);
     if($statement->execute())   {
         $message = 'เพิ่มผู้เข้าอบรมสำเร็จ';
@@ -69,6 +70,13 @@ if (isset($_POST['P_ID']) && isset($_POST['Dir_Name']) && isset($_POST['P_Name']
 
           <form method="post">   
           
+          <div class="form-group"> 
+            <label for="">สถานะ</label>
+            <select name="status_id" id="status_id" class="form-control"  required >
+                <option value="">สถานะ</option>
+                <option value="1">ผู้เข้าอบรม</option>
+                <option value="2">วิทยากร</option>
+            </select></div>
 
           
 
@@ -105,7 +113,7 @@ if (isset($_POST['P_ID']) && isset($_POST['Dir_Name']) && isset($_POST['P_Name']
 
           
             <div class="form-group">
-              <button type="submit" class="btn btn-info">เพิ่มผู้เข้าอบรม</button></div>
+              <button type="submit" class="btn btn-success">เพิ่มผู้เข้าอบรม</button>
               <a href="show.php" class="btn btn-danger">ยกเลิก</a>
 
 

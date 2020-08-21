@@ -9,17 +9,15 @@ $participantss = $statement->fetch(PDO::FETCH_OBJ);
 
 $message = '';
 if (isset($_POST['P_ID']) && isset($_POST['Dir_Name']) 
-&& isset($_POST['P_Name']) && isset($_POST['Tell']) 
-&& isset($_POST['Username']) && isset($_POST['Password']) ){
+&& isset($_POST['P_Name']) && isset($_POST['Tell'])  ){
     $P_ID = $_POST['P_ID'];
     $Dir_Name = $_POST['Dir_Name']; 
     $P_Name = $_POST['P_Name'];  
     $Tell = $_POST['Tell']; 
-    $Username = $_POST['Username']; 
-    $Password = $_POST['Password']; 
-    $sql = "UPDATE participants SET P_ID=?, Dir_Name=?, P_Name=?,  Tell=?,   Username=?, Password=? WHERE P_ID=?";
+   
+    $sql = "UPDATE participants SET P_ID=?, Dir_Name=?, P_Name=?,  Tell=? WHERE P_ID=?";
     $statement = $conn->prepare($sql);
-    if($statement->execute([$P_ID, $Dir_Name, $P_Name, $Tell, $Username, $Password, $P_ID]))   {
+    if($statement->execute([$P_ID, $Dir_Name, $P_Name, $Tell, $P_ID]))   {
         $message = 'แก้ไขข้อมูลวิทยากรสำเร็จ';
         header("Location: ../participants/show.php");
     }
@@ -63,14 +61,7 @@ if (isset($_POST['P_ID']) && isset($_POST['Dir_Name'])
           <label for="">หมายเลขโทรศัพท์</label>
           <input value="<?= $participantss->Tell; ?>" type="text" name="Tell" id="Tell" class="form-control" placeholder = 'หมายเลขโทรศัพท์' required ></div>
         
-        <div class="form-group">
-          <label for="">ชื่อผู้ใช้</label>
-          <input value="<?= $participantss->Username; ?>" type="text" name="Username" id="Username" class="form-control" placeholder = 'ชื่อผู้ใช้' required ></div>   
         
-          <div class="form-group">
-          <label for="">รหัสผ่าน</label>
-          <input value="<?= $participantss->Password; ?>" type="text" name="Password" id="Password" class="form-control" placeholder = 'รหัสผ่าน' required ></div>   
-
         <div class="form-group">
            <button type="submit" class="btn btn-info">แก้ไขข้อมูลวิทยากร</button></div>
            <a href="show.php" class="btn btn-danger">ยกเลิก</a>

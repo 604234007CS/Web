@@ -10,18 +10,16 @@ $lecturers = $statement->fetch(PDO::FETCH_OBJ);
 $message = '';
 if (isset($_POST['L_ID']) && isset($_POST['Dir_Name']) 
 && isset($_POST['L_Name']) 
-&& isset($_POST['Tell']) && isset($_POST['Workplace']) 
-&& isset($_POST['Username']) && isset($_POST['Password']) ){
+&& isset($_POST['Tell']) && isset($_POST['Workplace'])  ){
     $L_ID = $_POST['L_ID'];
     $Dir_Name = $_POST['Dir_Name']; 
     $L_Name = $_POST['L_Name'];  
     $Tell = $_POST['Tell']; 
     $Workplace = $_POST['Workplace']; 
-    $Username = $_POST['Username']; 
-    $Password = $_POST['Password']; 
-    $sql = "UPDATE lecturer SET L_ID=?, Dir_Name=?, L_Name=?,  Tell=?, Workplace=?,  Username=?, Password=? WHERE L_ID=?";
+  
+    $sql = "UPDATE lecturer SET L_ID=?, Dir_Name=?, L_Name=?,  Tell=?, Workplace=? WHERE L_ID=?";
     $statement = $conn->prepare($sql);
-    if($statement->execute([$L_ID, $Dir_Name, $L_Name, $Tell, $Workplace, $Username, $Password, $L_ID]))   {
+    if($statement->execute([$L_ID, $Dir_Name, $L_Name, $Tell, $Workplace, $L_ID]))   {
         $message = 'แก้ไขข้อมูลวิทยากรสำเร็จ';
         header("Location: ../Lecturer/show.php");
     }
@@ -68,14 +66,7 @@ if (isset($_POST['L_ID']) && isset($_POST['Dir_Name'])
           <label for="">สถานที่ทำงาน</label>
           <input value="<?= $lecturers->Workplace; ?>" type="text" name="Workplace" id="Workplace" class="form-control" placeholder = 'สถานที่' required ></div>   
        
-        <div class="form-group">
-          <label for="">ชื่อผู้ใช้</label>
-          <input value="<?= $lecturers->Username; ?>" type="text" name="Username" id="Username" class="form-control" placeholder = 'ชื่อผู้ใช้' required ></div>   
-        
-          <div class="form-group">
-          <label for="">รหัสผ่าน</label>
-          <input value="<?= $lecturers->Password; ?>" type="text" name="Password" id="Password" class="form-control" placeholder = 'รหัสผ่าน' required ></div>   
-
+       
         <div class="form-group">
            <button type="submit" class="btn btn-info">แก้ไขข้อมูลวิทยากร</button></div>
            <a href="show.php" class="btn btn-danger">ยกเลิก</a>

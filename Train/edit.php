@@ -9,16 +9,17 @@ $trainings = $statement->fetch(PDO::FETCH_OBJ);
 
 $message = '';
 if (isset($_POST['T_ID']) && isset($_POST['T_Name']) 
-&& isset($_POST['Address']) && isset($_POST['Date']) && isset($_POST['Time'])  ){
+&& isset($_POST['Address']) && isset($_POST['Date']) && isset($_POST['Time']) && isset($_POST['L_ID']) ){
     $T_ID = $_POST['T_ID'];
     $T_Name = $_POST['T_Name']; 
     $Address = $_POST['Address']; 
     $Date = $_POST['Date']; 
     $Time = $_POST['Time']; 
+    $L_ID = $_POST['L_ID'];
      
-    $sql = "UPDATE training SET T_ID=?, T_Name=?, Address=?, Date=?, Time=? WHERE T_ID=?";
+    $sql = "UPDATE training SET T_ID=?, T_Name=?, Address=?, Date=?, Time=? , L_ID=? WHERE T_ID=?";
     $statement = $conn->prepare($sql);
-    if($statement->execute([$T_ID, $T_Name, $Address, $Date, $Time, $T_ID]))   {
+    if($statement->execute([$T_ID, $T_Name, $Address, $Date, $Time, $T_ID ,$L_ID]))   {
         $message = 'แก้ไขข้อมูลการอบรมสำเร็จ';
         header("Location: ../Train/show.php");
     }
@@ -62,6 +63,10 @@ if (isset($_POST['T_ID']) && isset($_POST['T_Name'])
           <label for="">เวลา</label>
           <input value="<?= $trainings->Time; ?>" type="text" name="Time" id="Time" class="form-control" placeholder = 'เวลา' required ></div>
         
+          <div class="form-group">
+          <label for="">วิทยากร</label>
+          <input value="<?= $trainings->L_ID; ?>" type="text" name="L_ID" id="L_ID" class="form-control" placeholder = 'วิทยากร' required ></div>
+       
        
        
         

@@ -37,7 +37,7 @@ $document = $statement->fetchAll(PDO::FETCH_OBJ);
         <div class="container contact">	
     	<table id="document" class="table table-bordered table-striped">
       <h2>ข้อมูลเอกสาร</h2>
-      <a href="add.php" class='btn btn-info'>เพิ่มเอกสาร</a>
+      <a href="add.php" class='btn btn-success'>เพิ่มเอกสาร</a>
           </div>
     	<div class="card-body">
       	<table class="table table-bordered">

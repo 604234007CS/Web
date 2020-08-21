@@ -1,6 +1,9 @@
 <?php
 require '../condb.php';
-$sql = 'SELECT * FROM training';
+// $sql = 'SELECT * FROM training';
+$sql = 'SELECT training.T_ID, training.T_Name, training.Date, training.Address, training.Time, lecturer.L_Name
+FROM training,lecturer
+WHERE training.L_ID =  lecturer.L_ID';
 $statement = $conn->prepare($sql);
 $statement->execute();
 $training = $statement->fetchAll(PDO::FETCH_OBJ);
@@ -34,7 +37,7 @@ $training = $statement->fetchAll(PDO::FETCH_OBJ);
 	<div class="container contact">	
     	<table id="Train" class="table table-bordered table-striped">
 		<h2>ข้อมูลการอบรม</h2>
-      	<a href="add.php" class='btn btn-info'>เพิ่มการอบรม</a>
+      	<a href="add.php" class='btn btn-success'>เพิ่มการอบรม</a>
    		</div>
     	<div class="card-body">
       	<table class="table table-bordered">
@@ -44,11 +47,12 @@ $training = $statement->fetchAll(PDO::FETCH_OBJ);
         	<th>รหัสการอบรม</th>
          	<th>ชื่อการอบรม</th>
          	<th>สถานที่</th>
-          <th>วันที่</th>
-          <th>เวลา</th>
-          <!-- <th>วิทยากร</th> -->
-          <th>เอกสารประกอบ</th>
-          <th>เพิ่มเติม</th>
+            <th>วันที่</th>
+            <th>เวลา</th>
+            <th>วิทยากร</th>
+            <th>เพิ่มเติม</th>
+            <th>เอกสารประกอบ</th>
+
 
 		
       </tr>
@@ -61,13 +65,14 @@ $training = $statement->fetchAll(PDO::FETCH_OBJ);
             <td><?= $trainings->T_Name; ?></td> 
             <td><?= $trainings->Address; ?></td> 
             <td><?= $trainings->Date; ?></td> 
-            <td><?= $trainings->Time; ?></td>    
+            <td><?= $trainings->Time; ?></td>   
+            <td><?= $trainings->L_Name; ?></td>  
             <!-- <td><?= $trainings->Document; ?></td> -->
             <td>
               <a href="show_name.php?id=<?= $trainings->T_ID ?>" >รายชื่อผู้เข้าอบรม</a>
                <a onclick="return confirm('ต้องการลบหรือไม่?')" 
-              href="delete.php?id=<?= $trainings->T_ID ?>" >ลบ</a>
-              <a href="edit.php?id=<?= $trainings->T_ID ?>">แก้ไข</a>
+              href="delete.php?id=<?= $trainings->T_ID ?>" class="btn btn-danger" >ลบ</a>
+              <a href="edit.php?id=<?= $trainings->T_ID ?>"class="btn btn-warning" >แก้ไข</a>
 
 
           </td>
